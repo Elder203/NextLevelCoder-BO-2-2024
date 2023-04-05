@@ -5,5 +5,4 @@ if __name__ == "__main__":
     game.execute()
 
 # Tarea
-# Probar diferentes fonts
-# Añadir musica
+# Dino++
