@@ -1,9 +1,12 @@
+import random
 import pygame
+import os
 from dino_runner.components.obstacles.obstacle_manager import ObstacleManager
 from dino_runner.components.powerups.power_up_manager import PowerUpManager
 from dino_runner.utils.constants import BG, CLOUD, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, COLORS, RUNNING
 from dino_runner.components.dinosaur import Dinosaur
 from dino_runner.components.text_utils import TextUtils
+from dino_runner.components import sound_track
 
 
 class Game:
@@ -26,10 +29,17 @@ class Game:
         self.powerup_manager = PowerUpManager()
 
     def execute(self):
+        music_game = pygame.mixer.Sound(os.path.join('Queen - We Are The Champions.mp3'))
+        music_game.set.volume(0.5)
+        self.running = True
+        music_game.play(-1)
         while self.game_running:
             if not self.playing:
                 self.show_menu()
-            # self.run()
+
+        pygame.display.quit()
+        pygame.quit()        
+           
 
     def run(self):
         # Game loop: events - update - draw
